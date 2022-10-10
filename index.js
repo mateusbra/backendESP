@@ -28,7 +28,7 @@ app.get('/getLumin',async function(req,res){
     // Get a database reference to our posts
     await get(ref(db, `luminosity`)).then((snapshot) => {
         if (snapshot.exists()) {
-            res.send(snapshot.val().toString());
+            res.send(JSON.stringify({luminosity:snapshot.val()}));
         }
     });
 })
@@ -44,7 +44,7 @@ app.post('/setMotion',function(req,res){
 app.get('/getMotion',async function(req,res){
     await get(ref(db, `motion`)).then((snapshot) => {
         if (snapshot.exists()) {
-            res.send(snapshot.val().toString());
+            res.send(JSON.stringify({motion:snapshot.val()}));
         }
     });
 })
@@ -60,7 +60,7 @@ app.post('/setMode',function(req,res){
 app.get('/getMode',async function(req,res){
     await get(ref(db, `mode`)).then((snapshot) => {
         if (snapshot.exists()) {
-            res.send(snapshot.val().toString());
+            res.send(JSON.stringify({mode:snapshot.val()}));
         }
     });
 })
