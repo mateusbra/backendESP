@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const firebase = require('firebase/app');
 const PORT = 3000;
-const {getDatabase, ref, get, child, set, update, push, onValue, query, limitToLast} = require('firebase/database');
+const {getDatabase, ref, get, update} = require('firebase/database');
 
 const firebaseApp = firebase.initializeApp ({
     apiKey: "AIzaSyB5-Gs1Y8AHH2pD6cVM0h7Skv_lDk_ZBwo",
@@ -64,7 +64,6 @@ app.get('/getMode',async function(req,res){
         }
     });
 })
-
 
 app.listen(PORT, () => {
     console.log("server is running");
