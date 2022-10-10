@@ -14,11 +14,11 @@ Uso da API endpoints:
 
 ----------------------
 exemplo GET:
-https://backendesp-1gab6f8nd-mateusbra.vercel.app/getMotion
+https://backendesp-p2y5tlpbz-mateusbra.vercel.app/getMotion
 
 retorna movimento
 
 exemplo POST:
-https://backendesp-1gab6f8nd-mateusbra.vercel.app/setMotion?motion=true
+https://backendesp-p2y5tlpbz-mateusbra.vercel.app/setMotion?motion=true
 
 seta movimento detectado
