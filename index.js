@@ -17,11 +17,11 @@ const db = getDatabase(firebaseApp);
 
 
 app.post('/setLumin',function(req,res){
-    let lumin = req.query.lumin;
+    let luminosity = req.query.luminosity;
     update(ref(db, `/`), {
-        lumin:lumin,
+        luminosity:luminosity,
       });
-      res.send("adicionado!");
+      res.send("luminosidade alterada!");
 })
 
 app.get('/getLumin',async function(req,res){
@@ -38,7 +38,7 @@ app.post('/setMotion',function(req,res){
     update(ref(db, `/`), {
         motion:motion,
       });
-      res.send("adicionado!");
+      res.send("status do movimento alterado!");
 })
 
 app.get('/getMotion',async function(req,res){
@@ -54,7 +54,7 @@ app.post('/setMode',function(req,res){
     update(ref(db, `/`), {
         mode:mode,
       });
-      res.send("adicionado!");
+      res.send("modo alterado!");
 })
 
 app.get('/getMode',async function(req,res){
