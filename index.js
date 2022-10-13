@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const firebase = require('firebase/app');
 const PORT = 3000;
 const {getDatabase, ref, get, update} = require('firebase/database');
@@ -15,6 +16,7 @@ const firebaseApp = firebase.initializeApp ({
 
 const db = getDatabase(firebaseApp);
 
+app.use(cors());
 
 app.post('/setLumin',function(req,res){
     let luminosity = req.query.luminosity;
