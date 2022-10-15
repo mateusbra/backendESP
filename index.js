@@ -67,6 +67,22 @@ app.get('/getMode',async function(req,res){
     });
 })
 
+app.post('/setRgb',function(req,res){
+    let rgb = req.query.rgb;
+    update(ref(db, `/`), {
+        rgb:rgb,
+      });
+      res.send("rgb alterado!");
+})
+
+app.get('/getRgb',async function(req,res){
+    await get(ref(db, `rgb`)).then((snapshot) => {
+        if (snapshot.exists()) {
+            res.send(JSON.stringify({rgb:snapshot.val()}));
+        }
+    });
+})
+
 app.listen(PORT, () => {
     console.log("server is running");
 })
