@@ -36,7 +36,7 @@ app.get('/getLumin',async function(req,res){
 })
 
 app.post('/setMotion',function(req,res){
-    let motion = req.query.motion;
+    let motion = bool(req.query.motion);
     update(ref(db, `/`), {
         motion:motion,
       });
@@ -52,7 +52,7 @@ app.get('/getMotion',async function(req,res){
 })
 
 app.post('/setMode',function(req,res){
-    let mode = req.query.mode;
+    let mode = bool(req.query.mode);
     update(ref(db, `/`), {
         mode:mode,
       });
