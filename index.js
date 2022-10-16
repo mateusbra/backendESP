@@ -19,7 +19,7 @@ const db = getDatabase(firebaseApp);
 app.use(cors());
 
 app.post('/setLumin',function(req,res){
-    let luminosity = req.query.luminosity;
+    let luminosity = parseInt(req.query.luminosity);
     update(ref(db, `/`), {
         luminosity:luminosity,
       });
@@ -68,7 +68,8 @@ app.get('/getMode',async function(req,res){
 })
 
 app.post('/setRgb',function(req,res){
-    let rgb = req.query.rgb;
+    let rgb = req.query.rgb.toUpperCase();
+    console.log(rgb);
     update(ref(db, `/`), {
         rgb:rgb,
       });
@@ -84,15 +85,14 @@ app.get('/getRgb',async function(req,res){
 })
 
 app.post('/setLight',function(req,res){
-    let luminosity = req.query.light === "true";
+    let light = req.query.light === "true";
     update(ref(db, `/`), {
-        luminosity:luminosity,
+        light:light,
       });
       res.send("status da luz alterado!");
 })
 
 app.get('/getLight',async function(req,res){
-    // Get a database reference to our posts
     await get(ref(db, `light`)).then((snapshot) => {
         if (snapshot.exists()) {
             res.send(JSON.stringify({light:snapshot.val()}));
