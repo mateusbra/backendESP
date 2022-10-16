@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const firebase = require('firebase/app');
-const PORT = 3000;
+const PORT = 8000;
 const {getDatabase, ref, get, update} = require('firebase/database');
 
 const firebaseApp = firebase.initializeApp ({
@@ -36,7 +36,7 @@ app.get('/getLumin',async function(req,res){
 })
 
 app.post('/setMotion',function(req,res){
-    let motion = bool(req.query.motion);
+    let motion = Boolean(req.query.motion);
     update(ref(db, `/`), {
         motion:motion,
       });
@@ -52,7 +52,7 @@ app.get('/getMotion',async function(req,res){
 })
 
 app.post('/setMode',function(req,res){
-    let mode = bool(req.query.mode);
+    let mode = Boolean(req.query.mode);
     update(ref(db, `/`), {
         mode:mode,
       });
