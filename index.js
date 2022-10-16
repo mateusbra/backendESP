@@ -53,7 +53,6 @@ app.get('/getMotion',async function(req,res){
 
 app.post('/setMode',function(req,res){
     let mode = req.query.mode === "true";
-    console.log(mode);
     update(ref(db, `/`), {
         mode:mode,
       });
@@ -80,6 +79,23 @@ app.get('/getRgb',async function(req,res){
     await get(ref(db, `rgb`)).then((snapshot) => {
         if (snapshot.exists()) {
             res.send(JSON.stringify({rgb:snapshot.val()}));
+        }
+    });
+})
+
+app.post('/setLight',function(req,res){
+    let luminosity = req.query.light === "true";
+    update(ref(db, `/`), {
+        luminosity:luminosity,
+      });
+      res.send("status da luz alterado!");
+})
+
+app.get('/getLight',async function(req,res){
+    // Get a database reference to our posts
+    await get(ref(db, `light`)).then((snapshot) => {
+        if (snapshot.exists()) {
+            res.send(JSON.stringify({light:snapshot.val()}));
         }
     });
 })
