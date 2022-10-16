@@ -36,7 +36,7 @@ app.get('/getLumin',async function(req,res){
 })
 
 app.post('/setMotion',function(req,res){
-    let motion = Boolean(req.query.motion);
+    let motion = req.query.motion  === "true";
     update(ref(db, `/`), {
         motion:motion,
       });
@@ -52,7 +52,8 @@ app.get('/getMotion',async function(req,res){
 })
 
 app.post('/setMode',function(req,res){
-    let mode = Boolean(req.query.mode);
+    let mode = req.query.mode === "true";
+    console.log(mode);
     update(ref(db, `/`), {
         mode:mode,
       });
