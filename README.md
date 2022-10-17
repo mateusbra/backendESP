@@ -12,6 +12,10 @@ Uso da API endpoints:
 
 /getMode -> pega modo, parametros: bool mode
 
+/setRgb -> seta rgb, parametros: string rgb(6 digitos sem #)
+
+/getRgb -> pega rgb, 6 digitos sem #
+
 ----------------------
 exemplo GET:
 https://backendesp-p2y5tlpbz-mateusbra.vercel.app/getMotion
